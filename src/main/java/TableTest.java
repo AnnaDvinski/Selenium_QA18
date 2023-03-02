@@ -19,13 +19,20 @@ public class TableTest {
     }
     @Test
 public void tableHW2(){
-        List<WebElement> elements = By.cssSelector("#customers>tbody>tr").findElements(wd);
+
+        List<WebElement> elements = wd.findElements(By.cssSelector("#customers>tbody>tr"));
         System.out.println(elements.size());
-        List<WebElement> elements1 = By.cssSelector("#customers>tbody>tr>th").findElements(wd);
+        List<WebElement> el = wd.findElements(By.xpath("//table[@id='customers']//tbody//tr"));
+        List<WebElement> elements1 = wd.findElements(By.cssSelector("#customers>tbody>tr>th"));
         System.out.println(elements1.size());
-        By.cssSelector("#customers>tbody>tr:nth-child(3)").findElement(wd);
-        //By.cssSelector("#customers td:nth-child(3),#customers>tbody>tr>th:last-child").findElement(wd);
-        By.cssSelector("#customers>tbody>tr>th:last-child").findElement(wd);
+        List<WebElement> el1 = wd.findElements(By.xpath("//table[@id='customers']//tbody//tr//th"));
+        wd.findElement(By.cssSelector("#customers>tbody>tr:nth-child(3)"));
+        WebElement elem = wd.findElement(By.xpath("//table[@id='customers']//tbody//tr[3]"));
+        wd.findElement(By.cssSelector("#customers>tbody>tr>th:last-child"));
+        WebElement elem1 = wd.findElement(By.xpath("//table[@id='customers']//tbody//tr//th[last()]"));
+       // wd.findElement(By.cssSelector("#customers td:nth-child(3),#customers>tbody>tr>th:last-child"));
+
+
 
 }
 @AfterMethod
